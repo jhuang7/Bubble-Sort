@@ -1,0 +1,87 @@
+import java.util.Arrays;
+
+/*
+
+http://en.wikipedia.org/wiki/Bubble_sort
+
+Start at the beginning of an array and swap the first two elements if the first is bigger than the second Go to the next pair, etc, continuously making sweeps of the array until sorted O(n^2). 
+
+
+Bubble sort, sometimes referred to as sinking sort, is a simple sorting
+algorithm that repeatedly steps through the list to be sorted, compares
+each pair of adjacent items and swaps them if they are in the wrong
+order. The pass through the list is repeated until no swaps are needed,
+which indicates that the list is sorted. The algorithm, which is a
+comparison sort, is named for the way smaller elements "bubble" to the
+top of the list. Although the algorithm is simple, it is too slow and
+impractical for most problems even when compared to insertion sort.
+It can be practical if the input is usually in sort order but may
+occasionally have some out-of-order elements nearly in position.
+ 
+*/
+
+
+public class BubbleSort {
+
+	private static void swapInPlace (int a[], int i, int j) {
+		// in place swap without additional variable 
+		a[i] = a[i] + a[j];
+		a[j] = a[i] - a[j];
+		a[i] = a[i] - a[j];
+	}
+
+	private static void swap (int a[], int i, int j) {
+		int t = a[i];
+		a[i] = a[j];
+		a[j]= t;
+	}
+	
+	
+	private static void sort(int a[]) {
+    	int i=0;
+    	boolean done = false;
+    	while ( ! done  ) {
+    		done = true;
+    		int j = a.length -1 ;
+    		while (i<j) {
+    			if (a[j-1]>a[j]) {
+    				//swap (a, j-1, j);
+    				swapInPlace (a, j-1, j);
+    				done = false;
+    			}
+    			j--;
+    		}
+    		i++;
+    	}
+	}
+
+
+ 	public static void main(String[] args) {
+	
+ 		int a[] = { 2, 12, 53, 4, 10, 33, 334, 10, 67, 90};
+ 		int b[] = { 999, 2, 5, 63, 10, 20, 33, 44, 66, 77, 23, 88, 456, 77, 90, 1, 99, 101};
+        
+ 		System.out.println("Before sort : " + Arrays.toString(a) );
+ 		BubbleSort.sort(a);
+        
+ 		System.out.println("After sort : " + Arrays.toString(a) );
+ 		System.out.println("Before sort : " + Arrays.toString(b) );
+ 		BubbleSort.sort(b);
+        
+ 		System.out.println("Before sort : " + Arrays.toString(b) );
+        
+ 		int[] c = { 2, 12, 53, 4, 10, 33, 334, 10, 67, 90};
+ 		System.out.println("Before sort Arrays.sort(c) : " + Arrays.toString(c) );
+ 		Arrays.sort(c);
+ 		System.out.println("After sort Arrays.sort(c) : " + Arrays.toString(c) );
+        
+ 		float[] d = { (float)2.0, (float)12.1, (float)53.3, (float)4.2, (float)10.0, (float)33.5, (float)334.2, (float)10.3, (float)67.2, (float)90.1 };
+ 		System.out.println("Before sort Arrays.sort(d) : " + Arrays.toString(d) );
+ 		Arrays.sort(d);
+ 		System.out.println("After sort Arrays.sort(d) : " + Arrays.toString(d) );
+
+ 	}
+}
+
+
+
