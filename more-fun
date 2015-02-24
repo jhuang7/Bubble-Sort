@@ -1,0 +1,72 @@
+import java.util.Arrays;
+
+public class BubbleSort {
+
+	
+	private static void sort(int a[]) 
+	{
+    	int i=0;
+    	boolean done = false;
+    	while ( ! done  ) {
+    		done = true;
+    		int j = a.length -1 ;
+    		while (i<j) {
+    			if (a[j-1]>a[j]) {
+    				int t = a[j-1];
+    				a[j-1] = a[j];
+    				a[j]= t;
+    				
+//    				a[j-1] = a[j-1] + a[j];
+//    				a[j] = a[j-1] - a[j];
+//    				a[j-1] = a[j-1] - a[j];
+    				done = false;
+    			}
+    			j--;
+    		}
+    		i++;
+    	}
+	}
+
+	public static float getMedian(float[] array) {
+		if (array==null || array.length==0) {
+			return 0;
+		}
+		Arrays.sort(array);
+		int middle = array.length/2;
+	    if (array.length%2 == 1) {
+	        return array[middle];
+	    } else {
+	        return (array[middle-1] + array[middle]) / (float)2.0;
+	    }
+	}
+
+
+ 	public static void main(String[] args) {
+	
+		int a[] = { 2, 12, 53, 4, 10, 33, 334, 10, 67, 90};
+        int b[] = { 999, 2, 5, 63, 10, 20, 33, 44, 66, 77, 23, 88, 456, 77, 90, 1, 99, 101};
+        
+        System.out.println("Before sort : " + Arrays.toString(a) );
+        BubbleSort.sort(a);
+        
+        System.out.println("After sort : " + Arrays.toString(a) );
+        System.out.println("Before sort : " + Arrays.toString(b) );
+        BubbleSort.sort(b);
+        
+        System.out.println("Before sort : " + Arrays.toString(b) );
+        
+        int[] c = { 2, 12, 53, 4, 10, 33, 334, 10, 67, 90};
+        System.out.println("Before sort Arrays.sort(c) : " + Arrays.toString(c) );
+        Arrays.sort(c);
+        System.out.println("After sort Arrays.sort(c) : " + Arrays.toString(c) );
+        
+        float[] d = { (float)2.0, (float)12.1, (float)53.3, (float)4.2, (float)10.0, (float)33.5, (float)334.2, (float)10.3, (float)67.2, (float)90.1 };
+        System.out.println("Before sort Arrays.sort(d) : " + Arrays.toString(d) );
+        Arrays.sort(d);
+        System.out.println("After sort Arrays.sort(d) : " + Arrays.toString(d) );
+
+        float[] m = { (float)2.0, (float)12.1, (float)53.3, (float)4.2, (float)10.0, (float)33.5, (float)334.2, (float)10.3, (float)67.2, (float)90.1 };
+        System.out.println("getMedian(m) : " + getMedian(m) );
+
+ 	}
+}
