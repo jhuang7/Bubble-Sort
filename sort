@@ -1,0 +1,23 @@
+private static void sort(int a[]) 
+	{
+    	int i=0;
+    	boolean done = false;
+    	while ( ! done  ) {
+    		done = true;
+    		int j = a.length -1 ;
+    		while (i<j) {
+    			if (a[j-1]>a[j]) {
+    				int t = a[j-1];
+    				a[j-1] = a[j];
+    				a[j]= t;
+    				
+//    				a[j-1] = a[j-1] + a[j];
+//    				a[j] = a[j-1] - a[j];
+//    				a[j-1] = a[j-1] - a[j];
+    				done = false;
+    			}
+    			j--;
+    		}
+    		i++;
+    	      }
+	}
